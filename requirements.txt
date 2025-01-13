@@ -1,4 +1,8 @@
-asarPy==1.0.1
 brainflow==5.15.0
+cmake==3.31.4
 numpy==2.2.1
+PyQt5==5.15.7
+PyQt5-Qt5==5.15.2
+PyQt5_sip==12.11.0
+pyqtgraph==0.12.4
 setuptools==75.8.0
