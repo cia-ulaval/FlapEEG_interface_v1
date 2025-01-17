@@ -5,7 +5,6 @@ Repo of the winter EEG project by the Club d'Intelligence Artificielle of Laval 
 # How to get started with the project
 1. Go read the `project-chart.md` [here](/management/project-chart.md)
 2. Go read the `project-organization-manual.md` [here](/management/project-organization-manual.md)
-3. Go read the `team-contract.md` [here](/management/team-contract.md)
 
 # How to get started with python
 1. Install python (please chose the python 3.12 version)
