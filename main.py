@@ -1,8 +1,12 @@
+import brainflow
+import brainflow.board_shim
+import typing
 
 
 def main():
-    print("Test")
-    pass
+    board_type = brainflow.board_shim.BoardIds.CYTON_DAISY_BOARD
+    stream_session_input_param = brainflow.board_shim.BrainFlowInputParams
+    
 
 
 
