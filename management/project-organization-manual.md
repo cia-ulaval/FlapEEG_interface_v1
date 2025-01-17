@@ -198,3 +198,15 @@ https://github.com/orgs/cia-ulaval/projects/7
 ---
 
 **End of Document**
+
+<br>
+
+# Signatures
+By signing here you consent to oblige by the guidelines outlined in this document. In short, you will have to :
+1. Attend the weekly 1h meeting
+2. Dedicate at least 3h or every week working on the project
+3. Have fun!
+
+---
+- Louis-Etienne Messier : :white_check_mark:
+- Jordan Mathieu : :white_check_mark:
