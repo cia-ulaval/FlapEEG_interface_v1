@@ -1,26 +1,9 @@
 import pygame
 import random
 
-# Initialize pygame
+# Initialize constants
 size = width, height = 1280, 720
-pygame.init()
-screen = pygame.display.set_mode(size)
-clock = pygame.time.Clock()
-running = True
-
-# Load and scale the background image
-background = pygame.image.load("asset/bg.png")
-background = pygame.transform.scale(background, size)
-
-# Load Flappy Bird image
-flapEEG = pygame.image.load("asset/brainMidFlap.png")
-flapEEG = pygame.transform.scale(flapEEG, (150, 150))
 GRAY = (68, 68, 68)
-flapEEG.set_colorkey(GRAY)
-
-# Font for the timer
-font = pygame.font.SysFont("comicsans", 30)
-start_time = pygame.time.get_ticks()
 
 # Function to display the chronometer
 def display_timer(screen, font, start_time):
@@ -29,7 +12,8 @@ def display_timer(screen, font, start_time):
     timer_surface = font.render(timer_text, True, (255, 255, 255))  # White text
     screen.blit(timer_surface, (10, 10))  # Display timer at the top-left corner
 
-def display_bird(screen, flapEEG, duration):
+# Function to display the bird for a set duration
+def display_bird(screen, flapEEG, background, font, start_time, clock, duration):
     # Random position for the bird
     x = random.randint(0, width - flapEEG.get_width())
     y = random.randint(0, height - flapEEG.get_height())
@@ -49,34 +33,59 @@ def display_bird(screen, flapEEG, duration):
         pygame.display.flip()
         clock.tick(60)
 
-# Draw the background image and wait 5 seconds before starting
-screen.blit(background, (0, 0))
-pygame.display.flip()
+# Main function
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode(size)
+    clock = pygame.time.Clock()
+    running = True
 
-# Set the next bird display time
-next_bird_time = pygame.time.get_ticks() + random.randint(1000, 3000)
+    # Load and scale the background image
+    background = pygame.image.load("asset/bg.png")
+    background = pygame.transform.scale(background, size)
 
-# Main loop
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    # Load Flappy Bird image
+    flapEEG = pygame.image.load("asset/brainMidFlap.png")
+    flapEEG = pygame.transform.scale(flapEEG, (150, 150))
+    flapEEG.set_colorkey(GRAY)
 
-    # Draw the background
+    # Font for the timer
+    font = pygame.font.SysFont("comicsans", 30)
+    start_time = pygame.time.get_ticks()
+
+    # Draw the background image and wait 5 seconds before starting
     screen.blit(background, (0, 0))
-
-    # Display the continuous timer
-    display_timer(screen, font, start_time)
-
-    # Check if it's time to display the bird
-    if pygame.time.get_ticks() >= next_bird_time:
-        display_bird(screen, flapEEG, 1000)
-        next_bird_time = pygame.time.get_ticks() + random.randint(1000, 3000)  # Schedule next bird
-
-    # Update the screen
     pygame.display.flip()
+    pygame.time.wait(5)
 
-    # Limit frame rate
-    clock.tick(60)
+    # Set the next bird display time
+    next_bird_time = pygame.time.get_ticks() + random.randint(1000, 3000)
 
-pygame.quit()
+    # Main loop
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        # Draw the background
+        screen.blit(background, (0, 0))
+
+        # Display the continuous timer
+        display_timer(screen, font, start_time)
+
+        # Check if it's time to display the bird
+        if pygame.time.get_ticks() >= next_bird_time:
+            display_bird(screen, flapEEG, background, font, start_time, clock, 1000)
+            next_bird_time = pygame.time.get_ticks() + random.randint(1000, 3000)  # Schedule next bird
+
+        # Update the screen
+        pygame.display.flip()
+
+        # Limit frame rate
+        clock.tick(60)
+
+    pygame.quit()
+
+# Run the game
+if __name__ == "__main__":
+    main()
