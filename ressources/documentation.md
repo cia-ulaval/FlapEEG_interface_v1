@@ -10,6 +10,7 @@
 - [Extraction des caractéristiques](https://www.kaggle.com/code/latimerb/eeg-eyes-open-closed-alpha-waves)
 - [Élimination du signal de 60 Hz et des harmoniques](https://mne.tools/dev/auto_tutorials/preprocessing/10_preprocessing_overview.html)
 - [Débruitage et correction des signaux ECG (pas EEG)](https://www.kaggle.com/code/nelsonsharma/ecg-02-ecg-signal-pre-processing)
+- [EEG Protocol Guide](https://static1.squarespace.com/static/5abefa62d274cb16de90e935/t/5df7db5956ec9170a9b402e1/1576524637645/Electrode_Application_Protocol_Final_Compressed.pdf)
 
 ### Tools
 - [MNE - Open Source tool box for EEG](https://mne.tools/stable/index.html)
