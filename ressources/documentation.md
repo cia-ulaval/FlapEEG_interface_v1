@@ -1,6 +1,7 @@
-## Documentation 
+# Documentation
 
-Ressource de lien utile pour le projet
+### Should be read by everyone (Introduction to EEG)
+- [Intro](iMotions_EEG_Guide__2019.pdf)
 
 ### EEG Guide
 - [Exploring EEG: A Beginner's Guide](https://www.kaggle.com/code/yorkyong/exploring-eeg-a-beginner-s-guide)
@@ -22,5 +23,7 @@ Ressource de lien utile pour le projet
 ### Pytorch Model 
 - [torcheeg.models](https://torcheeg.readthedocs.io/en/stable/torcheeg.models.html)
 
-### EEG Guide
-
+### Paper
+- [Human implicit intent recognition based on the phase synchrony of EEG signals](https://drive.google.com/file/d/1PP_qasH_YHXobf_VvRVqYe4kAzoFMVzl/view?usp=drive_link)
+- [EEG-Based Motor Imagery Signal Analysis and Recognition](https://ieeexplore.ieee.org/abstract/document/10196333)
+- [EEG-Based Classification of Motor Imagery Activities](https://www.mdpi.com/2079-9292/11/15/2293)
