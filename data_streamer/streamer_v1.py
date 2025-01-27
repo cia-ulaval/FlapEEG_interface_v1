@@ -18,7 +18,7 @@ SERIAL_PORT = "/dev/ttyUSB0"
 
 BOARD_ID = brainflow.board_shim.BoardIds.CYTON_DAISY_BOARD
 MASTER_BOARD = brainflow.BoardIds.NO_BOARD
-PLAYBACK_FOLDER_PATH = os.path.join("data_streamer", "raw_recordings")
+PLAYBACK_FOLDER_PATH = os.path.join("raw_recordings")
 TOTAL_DATA_POINTS_TO_PRINT = 250
 COLOR_CHANNELS = ["grey", "purple", "blue", "green", "yellow", "orange", "red", "brown"]
 
@@ -161,9 +161,11 @@ def playback_recorded_data(file: str):
             
             x_axis = range(1, 251)
             lines[idx].set_data(x_axis, y_axis) 
-            if i < 1:
-                axes[idx].set_xlim(min(x_axis), max(x_axis))
-                axes[idx].set_ylim(-200000, 200000)
+            # if i < 1:
+            #     axes[idx].set_xlim(min(x_axis), max(x_axis))
+            #     axes[idx].set_ylim(-200000, 200000)
+            axes[idx].set_xlim(min(x_axis), max(x_axis))
+            axes[idx].set_ylim(min(restored_data[channel])-10, max(restored_data[channel])+10)
         
         
         print("Index data point : ", index_data_point)

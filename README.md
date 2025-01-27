@@ -1,6 +1,8 @@
 # FlagEEG_v1
 Repo of the winter EEG project by the Club d'Intelligence Artificielle of Laval University. The goal of this project is to interpret EEG signals in order to transform them into realtime game inputs.
 
+# Python version
+Repo is tested for python 3.12.8
 
 # How to get started with the project
 1. Go read the `project-chart.md` [here](/management/project-chart.md)
