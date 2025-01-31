@@ -15,8 +15,6 @@
    - [Deliverables](#23-deliverables)
 
 3. [Project Team and Roles](#3-project-team-and-roles)
-   - [Organization Chart](#31-organization-chart)
-   - [Roles and Responsibilities](#32-roles-and-responsibilities)
    - [Contact Information](#33-contact-information)
 
 4. [Processes and Procedures](#4-processes-and-procedures)
@@ -92,15 +90,6 @@
 ---
 
 ## 3. Project Team and Roles
-### 3.1 Organization Chart
-- Include a diagram of the project's organizational structure (can reference an external file or provide ASCII art).  
-
-### 3.2 Roles and Responsibilities
-| Role               | Name                | Responsibilities                        |
-|--------------------|---------------------|-----------------------------------------|
-| Project Manager    | Louis-Etienne Messier             | Overall planning, execution, and reporting | 
-| Team Member 1      | Jordan Mathieu                    | Specific tasks and responsibilities      | 
-| Team Member 2      |                     | Specific tasks and responsibilities      |
 
 ### 3.3 Contact Information
 | Name               | Role               | Email              | Phone             |
