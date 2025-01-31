@@ -107,6 +107,11 @@
 |--------------------|--------------------|--------------------|-------------------|
 | Louis-Etienne Messier             |      Project Manager               |        lemes3@ulaval.ca            |             438-295-9256      |
 | Jordan Mathieu | Team Member 1 | jordan.mathieu.2@ulaval.ca  | 418-637-8501 | 
+| Amen Ouannes | Team Member 2 | amoua17@ulaval.ca  | 581-459-2206 | 
+| William Blanchet Lafrenière | Team Member 3 | wibll@ulaval.ca | 581-997-7927 | 
+| Estelle Tournassat | Team Member 4 | estou4@ulaval.ca | 581-988-9849 | 
+| Dereck Bélanger | Team Member 5 | derekblanger@gmail.com | 581-308-6181 | 
+| Hedi Braham | Team Member 6 | mhbra5@ulaval.ca | 418-262-4406 |
 
 ---
 
