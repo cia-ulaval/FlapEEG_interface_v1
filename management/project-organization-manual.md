@@ -210,3 +210,4 @@ By signing here you consent to oblige by the guidelines outlined in this documen
 ---
 - Louis-Etienne Messier : :white_check_mark:
 - Jordan Mathieu : :white_check_mark:
+- William Blanchet Lafrenière : :white_check_mark:
