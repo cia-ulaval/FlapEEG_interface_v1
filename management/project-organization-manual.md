@@ -248,3 +248,4 @@ By signing here you consent to oblige by the guidelines outlined in this documen
 - William Blanchet Lafrenière : :white_check_mark:
 - Mohamed Hedi Braham : :white_check_mark:
 - Dereck Bélanger: :white_check_mark:
+- Estelle Tournassat: :white_check_mark:
