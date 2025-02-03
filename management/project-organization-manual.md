@@ -42,14 +42,7 @@
 
 9. [Closing Procedures](#9-closing-procedures)
 
-   - [Archiving Documentation](#9-closing-procedures)
-   - [Final Report](#9-closing-procedures)
-   - [Lessons Learned](#9-closing-procedures)
-
 10. [Appendices](#10-appendices)
-    - [Glossary of Terms](#10-appendices)
-    - [Reference Documents](#10-appendices)
-    - [Other Supporting Materials](#10-appendices)
 
 ---
 
