@@ -29,7 +29,7 @@ try:
     while True:
         sample, timestamp = inlet.pull_sample()
 
-        print("=============================================")
+        # print("=============================================")
         if (detect_blink(sample)):
             jump()
 
