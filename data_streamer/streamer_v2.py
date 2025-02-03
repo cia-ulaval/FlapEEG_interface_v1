@@ -1,4 +1,9 @@
 from pylsl import StreamInlet, resolve_byprop
+import sys
+sys.path.append('../')
+from eeg_processing.detection import detect_blink
+from game_control.flappy_control import jump
+import time
 
 # Need to create an inlet
 streams = resolve_byprop("type", "EEG")
@@ -23,8 +28,11 @@ for i in range(info.channel_count()):
 try:
     while True:
         sample, timestamp = inlet.pull_sample()
-        print(sample)
+
         print("=============================================")
+        if (detect_blink(sample)):
+            jump()
+
         
 except KeyboardInterrupt as e:
     print("Ending program")
