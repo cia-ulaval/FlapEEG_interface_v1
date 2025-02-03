@@ -3,4 +3,5 @@ import pyautogui
 
 def jump():
     """Makes flappy bird jump"""
-    pyautogui.press('space')
+    pyautogui.press('space', interval=0.3)
+    print("Jump!!")
