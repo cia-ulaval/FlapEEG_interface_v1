@@ -50,9 +50,4 @@ def start_recording_application():
     button = tkinter.Button(m, text="Record", width=30   ,command=lambda : start_recording(button))
     button.config(bg="green")
     button.pack()
-    
     m.mainloop()
-    pass
-
-
-start_recording_application()
