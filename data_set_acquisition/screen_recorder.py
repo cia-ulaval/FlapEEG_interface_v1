@@ -1,20 +1,23 @@
 import cv2
 import numpy as np
 from mss import mss
+from datetime import datetime
 
-def screen_recorder(output_file, frame_rate=60.0, resolution=(1920, 1080)):
+def screen_recorder(base_filename="session", frame_rate=60.0, resolution=(1920, 1080), stop_event=None):
+    # Generating files for each recording
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = f"{base_filename}_{timestamp}.mp4"
+
     # Define the codec and create VideoWriter object
-    fourcc = cv2.VideoWriter_fourcc(*"XVID")
+    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
     out = cv2.VideoWriter(output_file, fourcc, frame_rate, resolution)
 
     # Define the screen capture region
     sct = mss()
     monitor = {"top": 0, "left": 0, "width": resolution[0], "height": resolution[1]}
 
-    print("Recording started. Press 'q' to stop.")
-
     try:
-        while True:
+        while not stop_event.is_set():  # Check if the stop event is triggered
             # Capture the screen
             screenshot = sct.grab(monitor)
             # Convert to a numpy array
@@ -23,20 +26,10 @@ def screen_recorder(output_file, frame_rate=60.0, resolution=(1920, 1080)):
             frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
             # Write the frame to the output file
             out.write(frame)
-            # Display the recording screen
-            cv2.imshow("Recording Screen", frame)
 
-            # Break the loop if 'q' is pressed
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
-
-    except KeyboardInterrupt:
-        print("\nRecording stopped manually.")
+    except Exception as e:
+        print(f"Error during recording: {e}")
 
     # Release resources
     out.release()
-    cv2.destroyAllWindows()
-
-if __name__ == "__main__":
-    output_file = "screen_recording.avi"
-    screen_recorder(output_file)
+    print("Recording stopped.")

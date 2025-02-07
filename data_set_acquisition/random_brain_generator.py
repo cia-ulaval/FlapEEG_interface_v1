@@ -1,8 +1,11 @@
 import pygame
 import random
+import threading
+from threading import Event
+from screen_recorder import screen_recorder
 
 # Initialize constants
-size = width, height = 1280, 720
+size = width, height = 1536, 864
 GRAY = (68, 68, 68)
 
 # Function to display the chronometer
@@ -36,6 +39,12 @@ def display_bird(screen, flapEEG, background, font, start_time, clock, duration)
 # Main function
 def main():
     pygame.init()
+
+    stop_event = Event()
+
+    recorder_thread = threading.Thread(target=screen_recorder, args=("game_session", 60.0, (1920, 1080), stop_event))
+    recorder_thread.start()
+
     screen = pygame.display.set_mode(size)
     clock = pygame.time.Clock()
     running = True
@@ -85,6 +94,11 @@ def main():
         clock.tick(60)
 
     pygame.quit()
+    print("Exiting game. Stopping screen recorder...")
+
+    stop_event.set()
+    recorder_thread.join()
+    print("Recorder thread stopped.")
 
 # Run the game
 if __name__ == "__main__":
