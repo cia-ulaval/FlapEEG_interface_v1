@@ -24,7 +24,7 @@ COLOR_CHANNELS = ["grey", "purple", "blue", "green", "yellow", "orange", "red", 
 
 def create_boardshim()->brainflow.BoardShim:
     params = brainflow.BrainFlowInputParams()
-    params.serial_port = "/dev/ttyUSB0"
+    params.serial_port = SERIAL_PORT
     return brainflow.BoardShim(BOARD_ID, params)
 
 def print_mean_value(board: brainflow.BoardShim):
