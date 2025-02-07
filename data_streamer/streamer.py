@@ -11,3 +11,12 @@ class streamer:
         params.serial_port = self.SERIAL_PORT
         return brainflow.BoardShim(self.BOARD_ID, params)    
     
+    def start_streaming(self):
+        self.board.prepare_session()
+        self.board.start_stream()
+        self.stream_loop()
+        
+    def stream_loop(self):
+        data = self.board.get_current_board_data(1)
+        
+    
