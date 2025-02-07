@@ -1,4 +1,5 @@
 import data_streamer.datasaver as saver
+import data_streamer.streamer as streamer
 # Steps for annotation : 
 ## 1. Launch GUI with the necessary informations
 ## 2. Connect the helmet
@@ -11,7 +12,7 @@ import data_streamer.datasaver as saver
 
 def main():
     saver_gui = saver.Datasaver()
-    
+    saver_gui.start_main_loop()
     
 
 if __name__ == "__main__":
