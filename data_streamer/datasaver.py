@@ -2,24 +2,20 @@ import tkinter
 import tkinter.filedialog
 import tkinter.ttk
 import typing
+import threading
 
 class Datasaver:
     def __init__(self):
         self.DIRECTORY_WHERE_DATA_IS_SAVED = ""
         self.root = tkinter.Tk()
         self.setup_layout()
-        
-    def run_thread(self):
-        self.callback()
-        self.root.after(self.delta_time, self.run_thread)
     
     def set_thread_function(self, callback:callable):
-        pass
+        self.thread = threading.Thread(target=callback, daemon=False)
         
     def start_main_loop(self):
         self.thread.start()
         self.root.mainloop()
-
 
     def setup_layout(self):
         self.root.title("Dataset recording")
