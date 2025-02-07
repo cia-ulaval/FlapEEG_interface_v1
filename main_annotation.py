@@ -11,8 +11,6 @@ import data_streamer.datasaver as saver
 
 def main():
     saver_gui = saver.Datasaver()
-    saver_gui.set_thread_function()
-    saver_gui.start_main_loop()
     
     
 
