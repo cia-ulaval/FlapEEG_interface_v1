@@ -13,9 +13,13 @@ class Datasaver:
         STREAMING=2
         
         
+    class VARIABLES(Enum):
+        SAMPLING_RATE=30
+        
+        
     def __init__(self):
         self.DIRECTORY_WHERE_DATA_IS_SAVED = ""
-        self.FILE_WHERE_DATA_IS_SAVED = "test.csv"
+        self.FILE_WHERE_DATA_IS_SAVED = "test"
         self.state : Datasaver.STATE = self.STATE.IDLE
         self.root = tkinter.Tk()
         self.setup_layout()
@@ -31,7 +35,9 @@ class Datasaver:
         self.root.mainloop()
         
     def start_thread(self):
-        self.thread: threading.ThreadError = streamer.StreamerThread(output_path=self.create_full_file_name())
+        self.thread: threading.ThreadError = streamer.StreamerThread(
+            output_path=self.create_full_file_name(),
+            sampling_rate=self.VARIABLES.SAMPLING_RATE.value)
         self.thread.start()
     
     def stop_thread(self):
@@ -39,6 +45,7 @@ class Datasaver:
         self.thread.join()
 
     def create_full_file_name(self):
+        self.log_info(f"Targeting : {self.DIRECTORY_WHERE_DATA_IS_SAVED} / {self.FILE_WHERE_DATA_IS_SAVED}")
         return os.path.join(self.DIRECTORY_WHERE_DATA_IS_SAVED, 
                             self.FILE_WHERE_DATA_IS_SAVED)
 
