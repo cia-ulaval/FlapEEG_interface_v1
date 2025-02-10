@@ -14,6 +14,7 @@ Repo of the winter EEG project by the Club d'Intelligence Artificielle of Laval 
   - [2. Connect your computer to the helmet](#2-connect-your-computer-to-the-helmet)
   - [3. Read the OpenBCI docs](#3-read-the-openbci-docs)
 - [How to run the baseline](#how-to-run-the-baseline)
+- [How to run the annotation pipeline](#how-to-run-the-annotation-pipeline)
 
 ## Python version
 Repo is tested for python 3.12.8
