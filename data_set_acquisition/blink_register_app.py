@@ -124,7 +124,7 @@ class BlinkRegisterApp:
         pygame.init()
         # ------------------------- SETUP WINDOW -----------------------------------
         # Start in fullscreen at the display's native resolution
-        screen = pygame.display.set_mode((800,600))
+        screen = pygame.display.set_mode((1850,960))
         pygame.display.set_caption("EEG Blink Task")
 
 
@@ -162,10 +162,12 @@ class BlinkRegisterApp:
 
         # ------------------------- TIMER SETUP ------------------------------------
         start_time = pygame.time.get_ticks()
+        # stop the bird after 60 seconds
+        stop_bird_time = start_time + 60000
 
         # ------------------------- BIRD TIMING ------------------------------------
-        bird_display_duration = 1000  # ms
-        next_bird_time = pygame.time.get_ticks() + random.randint(1000, 3000)
+        bird_display_duration = 500  # ms
+        next_bird_time = pygame.time.get_ticks() + random.randint(1000, 5000)
         bird_visible = False
         bird_end_time = 0
         bird_x, bird_y = 0, 0
@@ -216,12 +218,10 @@ class BlinkRegisterApp:
 
             # 5) Bird logic
             now = pygame.time.get_ticks()
-            if not bird_visible and now >= next_bird_time:
+            if not bird_visible and next_bird_time <= now < stop_bird_time:
                 bird_visible = True
                 self.gt_true()
-                
                 bird_end_time = now + bird_display_duration
-                # Random position
                 bird_x = random.randint(0, WINDOW_WIDTH - flapEEG.get_width())
                 bird_y = random.randint(0, WINDOW_HEIGHT - flapEEG.get_height())
 
