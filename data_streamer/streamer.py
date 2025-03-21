@@ -8,10 +8,12 @@ import pandas as pd
 import numpy as np
 import data_streamer.blink_register_thread as blink_register_thread
 import multiprocessing
+from abc import ABC, abstractmethod
+from data_streamer.LoopStrategy import LoopStrategyFactory
 
 class StreamerThread(threading.Thread):
     
-    def __init__(self, output_path:str, sampling_rate:float):
+    def __init__(self, output_path:str, board_type:brainflow.BoardIds):
         threading.Thread.__init__(self, daemon=True)
         self.continue_streaming = True
 
@@ -21,7 +23,7 @@ class StreamerThread(threading.Thread):
             multithread_blink_value=self.multithread_blink_value,
         )
         self.blink_register_app_thread.start()
-        self.streamer = Streamer(output_path, self.multithread_blink_value, sampling_rate)
+        self.streamer = Streamer(output_path, self.multithread_blink_value, board_type)
         self.streamer.log_info(f"Saving data to : {output_path}")
         self.streamer.log_info(f"Starting visual widget")
                                                      
@@ -45,12 +47,12 @@ class Streamer:
         WINDOWS = "nt"
         LINUX = "posix"
     
-    def __init__(self, output_path:str, multithread_blink_value, sampling_rate:float = 125, ):
+    def __init__(self, output_path:str, multithread_blink_value:int, board_type:brainflow.BoardIds):
         self.SERIAL_PORT = "/dev/ttyUSB0" if os.name == Streamer.OS.LINUX.value else "COM3"  # Could also be : COM5, COM3, COM7 on Windows
-        self.BOARD_ID = brainflow.board_shim.BoardIds.CYTON_DAISY_BOARD
+        self.BOARD_ID = board_type
         self.board = self.create_boardshim()
+        self.strategy = LoopStrategyFactory.create_strategy(board_type)
         self.output_path = output_path
-        self.sampling_rate = sampling_rate
         self.multithread_blink_value = multithread_blink_value
         
     def log_info(self, message:str):
@@ -66,6 +68,7 @@ class Streamer:
         return brainflow.BoardShim(self.BOARD_ID, params)    
     
     def start_streaming(self):
+        self.strategy.before_loop(self.output_path)
         if self.board.is_prepared():
             self.board.release_all_sessions()
         self.board.prepare_session()
@@ -73,9 +76,6 @@ class Streamer:
     
     def whipe_clean(self):
         keyboard.unhook_all()
-        
-    def get_delta_time_from_sampling_rate(self):
-        return 1. / self.sampling_rate
     
     def space_down(self):
         return 44
@@ -90,19 +90,12 @@ class Streamer:
             return self.space_up()
     
     def stream_loop(self):
-        data = self.board.get_current_board_data(1)
-        gt_to_append = self.get_if_input()                    
-        new_row = np.full((1, data.shape[1]), gt_to_append)
-        data_annotated = np.vstack([data, new_row])
+        number_of_data = self.board.get_board_data_count()
+        if(number_of_data > 0):
+            gt_to_append = self.get_if_input()
+            self.strategy.stream_loop(self.board, output_path=self.output_path, gt_to_append=gt_to_append)
+            
 
-        NORMAL_SHAPE_OF_DATA_ANNOTATED = (33,1)
-        if(data_annotated.shape != NORMAL_SHAPE_OF_DATA_ANNOTATED):
-            return
-        
-        data_transposed = np.transpose(data_annotated)    
-        df = pd.DataFrame(data_transposed)
-        df.to_csv(self.output_path + ".csv", mode="a", index=False, header=False)
-        time.sleep(self.get_delta_time_from_sampling_rate())        
-        
+     
 
             

@@ -6,20 +6,17 @@ import threading
 import os
 from enum import Enum
 import data_streamer.streamer as streamer
+import brainflow
 
 class Datasaver:
     class STATE(Enum):
         IDLE=1
         STREAMING=2
         
-        
-    class VARIABLES(Enum):
-        SAMPLING_RATE=30
-        
-        
-    def __init__(self):
+    def __init__(self, board_type:brainflow.BoardIds):
         self.DIRECTORY_WHERE_DATA_IS_SAVED = ""
         self.FILE_WHERE_DATA_IS_SAVED = "test"
+        self.board_type = board_type
         self.state : Datasaver.STATE = self.STATE.IDLE
         self.root = tkinter.Tk()
         self.setup_layout()
@@ -37,7 +34,7 @@ class Datasaver:
     def start_thread(self):
         self.thread: threading.ThreadError = streamer.StreamerThread(
             output_path=self.create_full_file_name(),
-            sampling_rate=self.VARIABLES.SAMPLING_RATE.value)
+            board_type=self.board_type)
         self.thread.start()
     
     def stop_thread(self):

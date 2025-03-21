@@ -17,6 +17,16 @@ class BlinkRegisterApp:
         self.output_path = output_path
         self.PATH_TO_ASSETS = os.path.join("data_set_acquisition", "asset")
         self.multithread_blink_value = multithread_blink_value
+        self.random_intervals = [1050, 2457, 2045, 2986, 1235, 1859, 1111, 1234, 2357, 2868, 
+                                 1267, 1734, 1099, 1890, 1342, 1543, 2030, 2306, 2690, 1790,
+                                 3260, 3250, 4232, 1999, 4111, 2345, 1090, 3456, 4070, 2007,
+                                 1010, 1016, 2019]
+        self.random_intervals_index = 0
+    
+    def get_next_interval_value(self):
+        self.random_intervals_index = self.random_intervals_index + 1
+        print(self.random_intervals[self.random_intervals_index - 1])
+        return self.random_intervals[(self.random_intervals_index - 1) % len(self.random_intervals)]
     
     def stop(self):
         self.isRunning=False
@@ -167,7 +177,7 @@ class BlinkRegisterApp:
 
         # ------------------------- BIRD TIMING ------------------------------------
         bird_display_duration = 500  # ms
-        next_bird_time = pygame.time.get_ticks() + random.randint(1000, 5000)
+        next_bird_time = pygame.time.get_ticks() + self.get_next_interval_value()
         bird_visible = False
         bird_end_time = 0
         bird_x, bird_y = 0, 0
@@ -231,7 +241,7 @@ class BlinkRegisterApp:
                 if now >= bird_end_time:
                     bird_visible = False
                     self.gt_false()
-                    next_bird_time = now + random.randint(1000, 3000)
+                    next_bird_time = now + self.get_next_interval_value()
 
             # 6) Update display
             pygame.display.flip()
