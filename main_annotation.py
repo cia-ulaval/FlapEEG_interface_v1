@@ -3,9 +3,6 @@ import data_streamer.streamer as streamer
 import brainflow
 
 
-
-
-
 # Steps for annotation : 
 ## 1. Launch GUI with the necessary informations
 ## 2. Connect the helmet
