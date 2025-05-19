@@ -1,5 +1,8 @@
-import data_streamer.datasaver as saver
-import data_streamer.streamer as streamer
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import src.data_streamer.datasaver as saver
+import src.data_streamer.streamer as streamer
 import brainflow
 
 

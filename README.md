@@ -5,38 +5,41 @@
 Repo of the winter EEG project by the Club d'Intelligence Artificielle of Laval University. The goal of this project is to interpret EEG signals in order to transform them into realtime game inputs.
 
 # Table of Contents
-- [FlagEEG_v1](#flageeg_v1)
-- [Python version](#python-version)
-- [How to get started with the project](#how-to-get-started-with-the-project)
-- [How to get started with python](#how-to-get-started-with-python)
-- [How to get started with the EEG](#how-to-get-started-with-the-eeg)
-  - [1. Install the OpenBCI GUI](#1-install-the-openbci-gui)
-  - [2. Connect your computer to the helmet](#2-connect-your-computer-to-the-helmet)
-  - [3. Read the OpenBCI docs](#3-read-the-openbci-docs)
-- [How to run the baseline](#how-to-run-the-baseline)
-- [How to run the annotation pipeline](#how-to-run-the-annotation-pipeline)
+- [FlagEEG\_v1](#flageeg_v1)
+- [Table of Contents](#table-of-contents)
+  - [Python version](#python-version)
+  - [How to get started with the project](#how-to-get-started-with-the-project)
+  - [How to get started with the environment](#how-to-get-started-with-the-environment)
+  - [How to get started with the EEG](#how-to-get-started-with-the-eeg)
+    - [1. Install the OpenBCI GUI : download](#1-install-the-openbci-gui--download)
+    - [2. Connect your computer to the helmet](#2-connect-your-computer-to-the-helmet)
+    - [3. Read the OpenBCI docs](#3-read-the-openbci-docs)
+  - [How to run the baseline](#how-to-run-the-baseline)
+  - [How to run the annotation pipeline](#how-to-run-the-annotation-pipeline)
 
 ## Python version
 Repo is tested for python 3.12.8
 
 ## How to get started with the project
-1. Go read the `project-chart.md` [here](/management/project-chart.md)
-2. Go read the `project-organization-manual.md` [here](/management/project-organization-manual.md)
+1. Go read the `project-chart.md` [here](/misc/management/project-chart.md)
+2. Go read the `project-organization-manual.md` [here](misc/management/project-organization-manual.md)
 
-## How to get started with python
-1. Install python (please chose the python 3.12 version)
-2. Install the Git CLI (useful stuff for any programmer)
-3. Clone the FLapEEG_v1 repo with this command : 
+## How to get started with the environment
+1. Install the Git CLI
+2. Clone the FLapEEG_v1 repo with this command : 
 ```git clone git@github.com:cia-ulaval/FlagEEG_v1.git```
 _(If it doesn't work, you need to setup an SSH key on your GitHub account)_
-4. Open the cloned repo with a Text Editor of your choice
-5. Create a virtual environnement for your python dependencies with the command : 
-```python -m venv venv```
-6. Activate the virtual env :
-- For linux, mac : `source venv/bin/activate`
-- For Windows : `venv/Scripts/activate`
-7. Download the dependencies :
-```pip install -r requirements.txt```
+1. Install [conda](https://anaconda.org/anaconda/conda)
+2. Inside the repo you cloned, run this command to build the required environment : 
+   ```
+   conda env create -f env.yml
+   ```
+   This `env.yml` environment was tailored to be compatible with all systems including *Windows*, *Linux* and *MacOs* (but was only tested with *Windows* and *Linux*)
+3. Activate the environement to have all the required dependencies: 
+   ```
+   conda activate cia_flapeeg
+   ```
+   You should now be good to go to launch the wanted scripts!
 
 ## How to get started with the EEG
 ### 1. Install the OpenBCI GUI : [download](https://openbci.com/downloads)
@@ -55,16 +58,10 @@ To help connect your python scripts and the EEG helmet, OpenBCI provides us with
 
 
 ## How to run the baseline
-
+#TODO
 
 ## How to run the annotation pipeline
-1. Setup the env : 
-    
-    `python -m venv venv`
-
-    `source venv/bin/activate`
-    
-    `pip install -r requirements.txt`
+1. Setup the environment : [How to get started with the environment](#how-to-get-started-with-the-environment)
 
 2. Connect the EEG with the dongle
 3. Start the pipeline : 
@@ -72,11 +69,11 @@ To help connect your python scripts and the EEG helmet, OpenBCI provides us with
     `python main_annotation.py`
 
     An interface like this should show up : 
-    ![alt text](README_images/image.png)
-3. Select the target folder where all the `.csv` files are exported : 
+    ![alt text](docs/README_images/image.png)
+4. Select the target folder where all the `.csv` files are exported : 
 
-    ![alt text](README_images/image1.png)
-4. Write the name that your exported `.csv` file will take :
+    ![alt text](docs/README_images/image1.png)
+5. Write the name that your exported `.csv` file will take :
 
     ⚠️ **Important:** 
 
@@ -86,7 +83,7 @@ To help connect your python scripts and the EEG helmet, OpenBCI provides us with
         - The new data recorded is appended to the end of the document  inputed. So if you want to have separate files for different recording session, change the name of the input.
 
 
-    ![alt text](README_images/image2.png)
+    ![alt text](docs/README_images/image2.png)
 
 5. Start recording with the **Record** button. A window is supposed to show up to help you annotate your EEG data. Please blink when the **FlappyBrain** shows up.
 

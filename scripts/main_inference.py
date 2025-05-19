@@ -1,4 +1,4 @@
-from data_model_inference.model_inference import ModelInference
+from src.data_model_inference.model_inference import ModelInference
 
 
 
