@@ -64,7 +64,63 @@ To help connect your python scripts and the EEG helmet, OpenBCI provides us with
 
 
 ## How to run the baseline
-#TODO
+
+### 0. Plug in the helmet
+#### 0.1 Plug the Dongle in the right most USB port of the front of `CASTOR`
+```Important : the Dongle's switch should be on the GPIO_6 and NOT the RESET switch```
+
+#### 0.2 Put the battery in the helmet and open the switch
+
+
+### 1. Open the OpenBCI GUI:
+#### 1.1 Two options to open it :
+- Run this command in a terminal : `./OpenBCI_GUI`
+- Or you could look inside the `OpenBCI_GUI` folder, right click and run the `OpenBCI_GUI` script as a program : ![alt text](docs/README_images/image-10.png)
+
+#### 1.2 Start the stream session
+- In the OpenBCI GUI, you need to the session : 
+`CYTON (live) -> Serial (from Dongle) -> AUTO-CONNECT` : 
+![alt text](docs/README_images/image-11.png)
+- You should have this inferface : 
+![alt text](docs/README_images/image-12.png)
+
+#### 1.3 Change the Accelerometer Window to a **Networking** window
+- ![alt text](docs/README_images/image-4.png)
+
+#### 1.4 Change the UDP protocol to the **LSL** protocol
+- ![alt text](docs/README_images/image-5.png)
+
+#### 1.5 Select the Stream 1 Datatype to be TimeSeriesFilt
+- ![alt text](docs/README_images/image-6.png)
+
+#### 1.6 Start the LSL Data Stream
+- ![alt text](docs/README_images/image-7.png)
+
+#### 1.7 Start the global DataStream
+- ![alt text](docs/README_images/image-8.png)
+
+### 2. Start the FlapEEG game:
+
+
+- Second option : open a console or a code editor like `Visual Studio Code` and open this project : `EEG_flappy_bird`
+    - Then open a terminal
+    - Then activate the base conda environement : `conda activate`
+    - Then acivate the cia_flapeeg environement : `conda activate cia_flapeeg`
+    - Then launc the script : `python main.py`
+
+
+
+### 3. Start the detector - two options : 
+- Second option : open a console or a code editor like `Visual Studio Code` and open this project : `FlapEEG_interface_v1`
+    - Then open a terminal
+    - Then activate the base conda environement : `conda activate`
+    - Then acivate the cia_flapeeg environement : `conda activate cia_flapeeg`
+    - Then cd inside the good directory to run the script : `cd src/data_streamer`
+    - Then launc the script : `python lsl_streamer.py`
+
+### 4. Focus back on the game window
+- To register the keyboard presses, you need to focus back the mouse on the game window. **So click back on the window**.
+
 
 ## How to run the annotation pipeline
 1. Setup the environment : [How to get started with the environment](#how-to-get-started-with-the-environment)
