@@ -49,6 +49,12 @@ This is the official OpenBCI support user interface to allow streaming and seein
 
 **Important for Linux users** : For Linux users only, there is a necessary hardware step, to make in order to allow the necessary permissions for your USB ports. Go look at the [tutorial](https://docs.openbci.com/Software/OpenBCISoftware/GUIDocs/#linux-users-serial-port-permissions) of the fix. The fix is in the section : _Linux Users: Serial Port Permissions_
 
+For lazy bones, essentially you need to open permissions to usb ports for uses. In my case, on my Ubuntu machine this was the command that fixed it :
+
+```sudo usermod -aG dialout $USER```
+
+Then reboot.
+
 ### 2. Connect your computer to the helmet
 1. Connect the Daisy dongle to your USB port
 2. Run the OpenBCI GUI on your computer and start a streaming session : CYTON -> Serial (from Dongle) 
