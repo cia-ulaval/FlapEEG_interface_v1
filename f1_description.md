@@ -35,7 +35,7 @@ Contrôler une voiture de course dans TrackMania par la seule force des gestes d
 
 *   **Logiciels :** Python, TensorFlow/PyTorch, bibliothèques traitement signal
 *   **Matériels :** Bracelet EMG/gestuel, setup TrackMania
-*   **Compétences :** Traitement du signal, machine learning, développement jeu vidéo, expérimentation
+*   **Compétences :** Traitement du signal, machine learning, expérimentation
 
 ## Pourquoi rejoindre ce projet ?
 
@@ -43,8 +43,3 @@ Tu vas aimer ce projet si :
 *   Tu veux travailler sur une interface homme-machine innovante
 *   Tu es passionné par le machine learning appliqué au jeu vidéo
 *   Tu souhaites participer à un défi technique concret avec une démo finale spectaculaire
-
-## Contact & Liens Utiles
-*   **Contact :** [Email de Deoth Guei]
-*   **Partenaire :** VAUL (Véhicule Autonome Université Laval)
-*   **Mentorat souhaité :** Ihsen Hedhli (ML)
