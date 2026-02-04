@@ -11,6 +11,6 @@ def jump():
     global chrono
     global jump_number 
     if time.time() - chrono > REFRESH_JUMP_THRESHOLD:
-        pyautogui.press('shift')
+        pyautogui.press('up')
         chrono  = time.time()
         jump_number += 1  
