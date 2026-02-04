@@ -15,7 +15,9 @@ class BlinkRegisterApp:
     def __init__(self, output_path, multithread_blink_value):
         self.isRunning=True
         self.output_path = output_path
-        self.PATH_TO_ASSETS = os.path.join("data_set_acquisition", "asset")
+        # Get the project root directory (2 levels up from this file: src/data_set_acquisition -> src -> project_root)
+        self.PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+        self.PATH_TO_ASSETS = os.path.join(self.PROJECT_ROOT, "src", "data_set_acquisition", "asset")
         self.multithread_blink_value = multithread_blink_value
         self.random_intervals = [1050, 2457, 2045, 2986, 1235, 1859, 1111, 1234, 2357, 2868, 
                                  1267, 1734, 1099, 1890, 1342, 1543, 2030, 2306, 2690, 1790,
@@ -161,7 +163,7 @@ class BlinkRegisterApp:
         background = pygame.image.load(os.path.join(self.PATH_TO_ASSETS, "bg.png"))
         background = pygame.transform.scale(background, (WINDOW_WIDTH, WINDOW_HEIGHT))
 
-        flapEEG = pygame.image.load(os.path.join(self.PATH_TO_ASSETS,"brainMidFlap.png"))
+        flapEEG = pygame.image.load(os.path.join(self.PATH_TO_ASSETS, "brainMidFlap.png"))
         flapEEG = pygame.transform.scale(flapEEG, (150, 150))
         GRAY = (68, 68, 68)
         flapEEG.set_colorkey(GRAY)
@@ -207,7 +209,7 @@ class BlinkRegisterApp:
                         # Update window dimensions after toggling
                         WINDOW_WIDTH, WINDOW_HEIGHT = screen.get_size()
                         # Rescale background to match new window size
-                        background = pygame.image.load("asset/bg.png")
+                        background = pygame.image.load(os.path.join(self.PATH_TO_ASSETS, "bg.png"))
                         background = pygame.transform.scale(background, (WINDOW_WIDTH, WINDOW_HEIGHT))
 
             # 2) Draw background

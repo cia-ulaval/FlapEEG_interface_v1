@@ -5,7 +5,7 @@ import typing
 import threading
 import os
 from enum import Enum
-import data_streamer.streamer as streamer
+import src.data_streamer.streamer as streamer
 import brainflow
 
 class Datasaver:

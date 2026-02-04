@@ -1,5 +1,5 @@
 import threading
-import data_set_acquisition.blink_register_app as blink_register_app
+import src.data_set_acquisition.blink_register_app as blink_register_app
 
 class BlinkRegisterThread(threading.Thread):
     

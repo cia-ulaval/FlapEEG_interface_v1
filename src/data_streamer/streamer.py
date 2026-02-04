@@ -6,10 +6,10 @@ import threading
 import keyboard
 import pandas as pd
 import numpy as np
-import data_streamer.blink_register_thread as blink_register_thread
+import src.data_streamer.blink_register_thread as blink_register_thread
 import multiprocessing
 from abc import ABC, abstractmethod
-from data_streamer.LoopStrategy import LoopStrategyFactory
+from src.data_streamer.LoopStrategy import LoopStrategyFactory
 
 class StreamerThread(threading.Thread):
     
