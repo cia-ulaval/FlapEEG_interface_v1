@@ -31,10 +31,11 @@ class LoopStrategyCyton(LoopStrategy):
         super().__init__("_cyton")
     
     def before_loop(self, output_path:str):
+        # Noms électrodes 10-20 (Cyton 8 canaux)
         header = pd.DataFrame({
             'index': [],
-            'channel_0': [], 'channel_1': [], 'channel_2': [], 'channel_3': [],
-            'channel_4': [], 'channel_5': [], 'channel_6': [], 'channel_7': [],
+            'FP1': [], 'FP2': [], 'F7': [], 'F8': [],
+            'FZ': [], 'CZ': [], 'O1': [], 'O2': [],
             'accelerometer_x' : [], 'accelerometer_y' : [], 'accelerometer_z' : [],
             'empty1': [], 
             'digital_channel_0' : [],'digital_channel_1' : [],'digital_channel_2' : [],'digital_channel_3' : [],
@@ -68,12 +69,13 @@ class LoopStrategyCytonDaisy(LoopStrategy):
         super().__init__("_cyton_daisy")
     
     def before_loop(self, output_path:str):
+        # Noms électrodes 10-20 (Cyton 8 + Daisy 8 canaux)
         header = pd.DataFrame({
             'index': [],
-            'channel_0': [], 'channel_1': [], 'channel_2': [], 'channel_3': [],
-            'channel_4': [], 'channel_5': [], 'channel_6': [], 'channel_7': [],
-            'channel_8': [], 'channel_9': [], 'channel_10': [], 'channel_11': [],
-            'channel_12': [], 'channel_13': [], 'channel_14': [], 'channel_15': [],
+            'FP1': [], 'FP2': [], 'F7': [], 'F8': [],
+            'FZ': [], 'CZ': [], 'O1': [], 'O2': [],
+            'F3': [], 'F4': [], 'T3': [], 'T4': [],
+            'T5': [], 'T6': [], 'P3': [], 'P4': [],
             'accelerometer_x' : [], 'accelerometer_y' : [], 'accelerometer_z' : [],
             'empty1': [], 
             'digital_channel_0' : [],'digital_channel_1' : [],'digital_channel_2' : [],'digital_channel_3' : [],

@@ -4,6 +4,16 @@
 # FlagEEG_v1
 Repo of the winter EEG project by the Club d'Intelligence Artificielle of Laval University. The goal of this project is to interpret EEG signals in order to transform them into realtime game inputs.
 
+## Configuration 16 canaux (Cyton + Daisy)
+
+Le projet supporte **16 canaux EEG** avec Cyton + Daisy :
+- **Enregistrement** : `main_annotation.py` utilise `CYTON_DAISY_BOARD`
+- **Training** : `data_handler.py` charge 16 canaux (compatibilité 8ch avec padding)
+- **Inference** : `model_inference.py` et `main_inference.py` utilisent 16 canaux
+- **CSV** : Noms d'électrodes 10-20 (FP1, FP2, F7, F8, FZ, CZ, O1, O2, F3, F4, T3, T4, T5, T6, P3, P4)
+
+**Prérequis** : Module Daisy branché sur Cyton, 8 électrodes supplémentaires, réentraîner le modèle avec données 16 canaux.
+
 # Table of Contents
 - [FlagEEG\_v1](#flageeg_v1)
 - [Table of Contents](#table-of-contents)

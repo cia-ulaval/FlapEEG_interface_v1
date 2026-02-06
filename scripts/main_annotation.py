@@ -14,7 +14,7 @@ import brainflow
 ## 5. Annotate data
 
 def main():
-    saver_gui = saver.Datasaver(board_type=brainflow.BoardIds.CYTON_BOARD)
+    saver_gui = saver.Datasaver(board_type=brainflow.BoardIds.CYTON_DAISY_BOARD)
     saver_gui.start_main_loop()
     
 
